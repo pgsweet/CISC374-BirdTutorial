@@ -22,6 +22,6 @@ public class CharacterController : MonoBehaviour
 
     void Jump() 
     {
-        player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * 10;
+        player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * JumpForce;
     }
 }

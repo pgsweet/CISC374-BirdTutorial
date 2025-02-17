@@ -1,18 +1,17 @@
 using UnityEngine;
 
-public class PipesController : MonoBehaviour
+public class SpawnController : MonoBehaviour
 {
-    public float Move_Speed = 5;
-
+    public GameObject Pipes_Prefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Instantiate(Pipes_Prefab, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += Vector3.left * Time.deltaTime * Move_Speed;
+        
     }
 }
