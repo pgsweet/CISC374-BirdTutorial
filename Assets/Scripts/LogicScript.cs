@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,7 @@ public class LogicScript : MonoBehaviour
 
     public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetSceneByName("GameLoaded").buildIndex);
+        SceneManager.LoadScene("GameLoaded");
     }
 
     public void gameOver()
@@ -34,14 +35,13 @@ public class LogicScript : MonoBehaviour
         if (playerScore > currHighScore)
         {
             PlayerPrefs.SetInt("HighScore", playerScore);
-            highScoreText.GetComponent<Text>().text = playerScore.ToString();
         }
+        highScoreText.GetComponent<Text>().text = math.max(playerScore, currHighScore).ToString();
     }
 
     public void startGame()
     {
-        Debug.Log(SceneManager.GetSceneByPath("Assets/Scenes/GameLoaded.unity").buildIndex);
-        SceneManager.LoadScene(SceneManager.GetSceneByName("GameLoaded").buildIndex);
+        SceneManager.LoadScene("GameLoaded");
     }
 
 }

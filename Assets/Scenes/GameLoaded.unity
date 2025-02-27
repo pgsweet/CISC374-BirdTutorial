@@ -868,7 +868,7 @@ MonoBehaviour:
   startScreen: {fileID: 415778514}
   gameUi: {fileID: 2049647557}
   player: {fileID: 397798549}
-  highScoreText: {fileID: 0}
+  highScoreText: {fileID: 1421819420}
 --- !u!4 &1626474597
 Transform:
   m_ObjectHideFlags: 0

@@ -24,7 +24,9 @@ public class CharacterController : MonoBehaviour
         
         if (gameObject.transform.position.y < -yBounds || gameObject.transform.position.y > yBounds)
         {
-            logic.gameOver();
+            if (birdIsAlive) {
+                logic.gameOver();
+            }
         }
     }
 
@@ -36,6 +38,5 @@ public class CharacterController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         logic.gameOver();
-        birdIsAlive = false;
     }
 }
