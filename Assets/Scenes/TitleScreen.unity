@@ -420,6 +420,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5787690017471243950, guid: cd0ef67576c57a249aed476f4568dfbe, type: 3}
   m_PrefabInstance: {fileID: 9021110982677173272}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &397798559
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397798549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4133ae948956411448bdd888df5b0cd6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &415778514
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +732,7 @@ MonoBehaviour:
   startScreen: {fileID: 415778514}
   gameUi: {fileID: 2049647557}
   player: {fileID: 397798549}
+  highScoreText: {fileID: 0}
 --- !u!4 &1626474597
 Transform:
   m_ObjectHideFlags: 0
@@ -1586,7 +1609,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3684814982625631566, guid: cd0ef67576c57a249aed476f4568dfbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397798559}
   m_SourcePrefab: {fileID: 100100000, guid: cd0ef67576c57a249aed476f4568dfbe, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
