@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Logic
   - GameObjects
+  - Animation
+  - Music
+  - Record Scratch
   layers:
   - Default
   - TransparentFX

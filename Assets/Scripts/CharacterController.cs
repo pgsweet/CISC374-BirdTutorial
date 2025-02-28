@@ -7,13 +7,13 @@ public class CharacterController : MonoBehaviour
     public LogicScript logic;
     public bool birdIsAlive = true;
     public int yBounds = 23;
-    public Animator animation;
+    private PlayerAnimation animation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        animation = gameObject.transform.GetChild(0).GetComponent<Animator>();
+        animation = GetComponent<PlayerAnimation>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,12 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
-            Jump();
+            animation.Flap();
+            player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * JumpForce;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space) && birdIsAlive)
+        {
+            animation.StopFlap();
         }
         
         if (gameObject.transform.position.y < -yBounds || gameObject.transform.position.y > yBounds)
@@ -32,13 +37,6 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void Jump() 
-    {
-        // play the animation called "Player Jump"
-        animation.Play("Player Jump");
-
-        player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * JumpForce;
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

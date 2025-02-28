@@ -8,10 +8,9 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOverScreen;
-    public GameObject startScreen;
-    public GameObject gameUi;
     public GameObject player;
     public GameObject highScoreText;
+    public GameObject scratchSound;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
@@ -28,6 +27,10 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     {
         player.GetComponent<CharacterController>().birdIsAlive = false;
+
+        GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusicScript>().StopMusic();
+        scratchSound.SetActive(true);
+        scratchSound.GetComponent<RecordScratchScript>().RecordScratch();
 
         gameOverScreen.SetActive(true);
 
