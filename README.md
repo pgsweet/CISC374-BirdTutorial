@@ -6,3 +6,5 @@ Feeling - by Apoxode
 
 ## Sound Effects:
 record_scratch - freesound_community
+ding - freesound_community
+Happy Pop 2 - floraphonic

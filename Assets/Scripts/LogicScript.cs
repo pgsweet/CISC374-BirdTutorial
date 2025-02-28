@@ -11,6 +11,7 @@ public class LogicScript : MonoBehaviour
     public GameObject player;
     public GameObject highScoreText;
     public GameObject scratchSound;
+    public GameObject dingSound;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
@@ -47,4 +48,9 @@ public class LogicScript : MonoBehaviour
         SceneManager.LoadScene("GameLoaded");
     }
 
+    public void ding()
+    {
+        dingSound.SetActive(true);
+        dingSound.GetComponent<DingScript>().Ding();
+    }
 }

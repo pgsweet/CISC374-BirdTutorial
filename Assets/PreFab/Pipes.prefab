@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Move_Speed: 5
   deadSpace: 45
-  character: {fileID: 0}
+  player: {fileID: 0}
 --- !u!61 &8516269438096169997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
+  dingSound: {fileID: 0}
 --- !u!1 &3120602705471071856
 GameObject:
   m_ObjectHideFlags: 0

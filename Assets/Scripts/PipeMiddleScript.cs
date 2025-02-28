@@ -14,14 +14,15 @@ public class PipeMiddleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 3 && GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().birdIsAlive)
         {
-        logic.addScore(1);
+            logic.addScore(1);
+            logic.ding();
         }
     }
 }
