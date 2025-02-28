@@ -5,7 +5,7 @@ public class SpawnController : MonoBehaviour
     public GameObject Pipes_Prefab;
     private float timer = 0.0f;
     public float spawnTime = 4.0f;
-    public float heightOffset = 10.0f;
+    public float heightOffset = 9.5f;
     private GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,5 +35,11 @@ public class SpawnController : MonoBehaviour
         float highestPoint = transform.position.y + heightOffset;
 
         Instantiate(Pipes_Prefab, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+    }
+
+    public void increaseDifficulty()
+    {
+        spawnTime /= 1.05f;
+        Debug.Log("Spawn Time: " + spawnTime);
     }
 }

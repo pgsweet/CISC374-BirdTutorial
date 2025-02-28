@@ -10,14 +10,19 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject player;
     public GameObject highScoreText;
-    public GameObject scratchSound;
-    public GameObject dingSound;
+    public GameObject audioPlayer;
+    public GameObject pipeSpawner;
+    public GameObject backgroundMusic;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
     {
         playerScore += scoreToAdd;
         scoreText.text = playerScore.ToString();
+        if (playerScore % 5 == 0)
+        {
+            pipeSpawner.GetComponent<SpawnController>().increaseDifficulty();
+        }
     }
 
     public void restartGame()
@@ -29,9 +34,8 @@ public class LogicScript : MonoBehaviour
     {
         player.GetComponent<CharacterController>().birdIsAlive = false;
 
-        GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusicScript>().StopMusic();
-        scratchSound.SetActive(true);
-        scratchSound.GetComponent<RecordScratchScript>().RecordScratch();
+        backgroundMusic.GetComponent<BackgroundMusicScript>().StopMusic();
+        audioPlayer.GetComponent<AudioScript>().Scratch();
 
         gameOverScreen.SetActive(true);
 
@@ -45,12 +49,14 @@ public class LogicScript : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene("GameLoaded");
+        var op = SceneManager.LoadSceneAsync("GameLoaded");
+        op.allowSceneActivation = false;
+        op.allowSceneActivation = true;
+
     }
 
     public void ding()
     {
-        dingSound.SetActive(true);
-        dingSound.GetComponent<DingScript>().Ding();
+        audioPlayer.GetComponent<AudioScript>().Ding();
     }
 }

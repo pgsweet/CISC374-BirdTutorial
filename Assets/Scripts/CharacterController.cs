@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour
     public bool birdIsAlive = true;
     public int yBounds = 23;
     private PlayerAnimation animation;
-    public GameObject popSound;
+    public GameObject audioPlayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +22,7 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
-            popSound.SetActive(true);
-            popSound.GetComponent<PopScript>().Pop();
+            audioPlayer.GetComponent<AudioScript>().Pop();
             animation.Flap();
             player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up * JumpForce;
         }
