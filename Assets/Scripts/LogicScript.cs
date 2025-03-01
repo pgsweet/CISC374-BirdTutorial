@@ -12,7 +12,9 @@ public class LogicScript : MonoBehaviour
     public GameObject highScoreText;
     public GameObject audioPlayer;
     public GameObject pipeSpawner;
-    public GameObject backgroundMusic;
+
+    [SerializeField]
+    private SceneController _sceneController;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
@@ -34,7 +36,7 @@ public class LogicScript : MonoBehaviour
     {
         player.GetComponent<CharacterController>().birdIsAlive = false;
 
-        backgroundMusic.GetComponent<BackgroundMusicScript>().StopMusic();
+        GameObject.FindGameObjectWithTag("Music").GetComponent<BackgroundMusicScript>().StopMusic();
         audioPlayer.GetComponent<AudioScript>().Scratch();
 
         gameOverScreen.SetActive(true);
@@ -49,9 +51,7 @@ public class LogicScript : MonoBehaviour
 
     public void startGame()
     {
-        var op = SceneManager.LoadSceneAsync("GameLoaded");
-        op.allowSceneActivation = false;
-        op.allowSceneActivation = true;
+       _sceneController.LoadScene("GameLoaded");
 
     }
 

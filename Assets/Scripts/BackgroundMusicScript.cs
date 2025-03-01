@@ -3,13 +3,14 @@ using UnityEngine;
 public class BackgroundMusicScript : MonoBehaviour
 {
     public static BackgroundMusicScript instance;
-
+ 
     private void Awake()
     {
         if (instance == null)
         {
             DontDestroyOnLoad(this.gameObject);
             instance = this;
+            this.GetComponent<AudioSource>().Play();
         }
         else
         {
@@ -25,6 +26,7 @@ public class BackgroundMusicScript : MonoBehaviour
 
     public void StopMusic()
     {
+        Debug.Log("Destroyed");
         Destroy(gameObject);
     }
 }

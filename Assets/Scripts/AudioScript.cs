@@ -13,7 +13,7 @@ public class AudioScript : MonoBehaviour
 
     public void Scratch()
     {
-        this.GetComponent<AudioSource>().PlayOneShot(scratch);
+        this.GetComponent<AudioSource>().PlayOneShot(scratch, 0.5f);
     }
     
     public void Pop()
